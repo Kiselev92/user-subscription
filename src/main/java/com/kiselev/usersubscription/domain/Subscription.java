@@ -23,7 +23,7 @@ public class Subscription {
     Long userId;
 
     /**
-     * Система, на которую подписываемся
+     * Платформа, на которую подписываемся
      */
     PlatformEnum platform;
 

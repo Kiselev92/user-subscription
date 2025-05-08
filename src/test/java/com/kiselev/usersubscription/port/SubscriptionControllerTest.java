@@ -2,7 +2,6 @@ package com.kiselev.usersubscription.port;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kiselev.usersubscription.AbstractMockMvcTest;
-import com.kiselev.usersubscription.adapter.repository.UserRepository;
 import com.kiselev.usersubscription.domain.Subscription;
 import com.kiselev.usersubscription.service.SubscriptionService;
 import org.instancio.Instancio;
@@ -11,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
-
 import java.util.List;
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
@@ -30,9 +27,6 @@ class SubscriptionControllerTest extends AbstractMockMvcTest {
 
     @MockitoBean
     private SubscriptionService subscriptionService;
-
-    @MockitoBean
-    private UserRepository userRepository;
 
     @Autowired
     private ObjectMapper objectMapper;

@@ -2,8 +2,10 @@ package com.kiselev.usersubscription.domain;
 
 import lombok.Builder;
 import lombok.Value;
+import lombok.With;
 
 @Value
+@With
 @Builder
 public class User {
 

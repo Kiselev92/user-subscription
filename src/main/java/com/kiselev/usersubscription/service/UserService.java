@@ -17,9 +17,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper = Mappers.getMapper(UserMapper.class);
 
-    public void create(User user) {
-        userRepository.save(userMapper.toEntity(user));
-    }
+    public void create(User user) { userRepository.save(userMapper.toEntity(user)); }
 
     public User getById(Long id) {
         UserEntity userEntity = userRepository.findById(id)

@@ -12,10 +12,12 @@ import com.kiselev.usersubscription.domain.Subscription;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
@@ -25,12 +27,15 @@ public class SubscriptionService {
     private final UserRepository userRepository;
     private final SubscriptionMapper subscriptionMapper = Mappers.getMapper(SubscriptionMapper.class);
 
+    @Transactional
     public void add(Long userId, Subscription subscription) {
         UserEntity userEntity = userRepository.findById(userId)
             .orElseThrow(() -> new NotFoundException("user %d not found".formatted(userId)));
 
-        Set<Long> existedSubscriptionIds = userEntity.getSubscriptions().stream().map(SubscriptionEntity::getId).collect(Collectors.toSet());
-        if (existedSubscriptionIds.contains(subscription.getId())) {
+        boolean alreadySubscribed = userEntity.getSubscriptions().stream()
+                .anyMatch(sub -> sub.getPlatform() == subscription.getPlatform());
+
+        if (alreadySubscribed) {
             throw new AlreadySubscribedException(
                 "User %d already subscribed to %s".formatted(userId, subscription.getPlatform().getTitle()));
         }
