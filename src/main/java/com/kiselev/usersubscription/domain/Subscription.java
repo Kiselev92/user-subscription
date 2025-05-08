@@ -1,39 +1,46 @@
 package com.kiselev.usersubscription.domain;
 
-import com.kiselev.usersubscription.adapter.entity.SubscriptionEntity;
-import lombok.*;
+import lombok.Builder;
+import lombok.Value;
+import lombok.With;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.Instant;
 
-@Data
+@Value
+@With
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class Subscription {
 
-    int id;
+    /**
+     * ID подписки
+     */
+    Long id;
 
-    String platform;
+    /**
+     * ID Пользователя
+     */
+    Long userId;
 
-    LocalDate startDate;
+    /**
+     * Система, на которую подписываемся
+     */
+    PlatformEnum platform;
 
-    BigDecimal price;
+    /**
+     * Цена покупки подписки
+     */
+    BigDecimal boughtPrice;
 
-    public static Subscription fromSubscriptionEntity(SubscriptionEntity entity) {
-        return Subscription.builder()
-                .id(entity.getId())
-                .platform(entity.getServiceName())
-                .startDate(entity.getStartDate())
-                .price(entity.getPrice())
-                .build();
-    }
+    /**
+     * Время окончания подписки.
+     * Если сделать LocalDate, то для человека в Хабаровске подписка закончится раньше, чем для человека в Москве,
+     * т.к. отсутствует часовой пояс, подписка в первом случае будет куплена на меньший срок, чем во второй.
+     */
+    Instant expired;
 
-    public SubscriptionEntity toSubscriptionEntity() {
-        SubscriptionEntity entity = new SubscriptionEntity();
-        entity.setServiceName(platform);
-        entity.setStartDate(startDate);
-        entity.setPrice(price);
-        return entity;
-    }
+    /**
+     * Дата создания подписки
+     */
+    Instant created;
 }

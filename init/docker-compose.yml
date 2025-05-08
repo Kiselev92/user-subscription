@@ -8,9 +8,9 @@ services:
       POSTGRES_DB: user_subscription
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - "5432:5432"
     volumes:
       - ~/pgdata:/var/lib/postgresql/data/pgdata
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql

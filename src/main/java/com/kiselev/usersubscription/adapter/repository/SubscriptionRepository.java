@@ -1,21 +1,23 @@
 package com.kiselev.usersubscription.adapter.repository;
 
 import com.kiselev.usersubscription.adapter.entity.SubscriptionEntity;
-import com.kiselev.usersubscription.domain.TopSubscription;
+import com.kiselev.usersubscription.domain.PlatformEnum;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface SubscriptionRepository extends JpaRepository<SubscriptionEntity, Integer> {
+@Repository
+public interface SubscriptionRepository extends JpaRepository<SubscriptionEntity, Long> {
 
     @Query(value = """
-        SELECT s.service_name AS serviceName, COUNT(s.user_id) AS subscriptionCount
-        FROM subscriptions s
-        GROUP BY s.service_name
-        ORDER BY subscriptionCount DESC
-        LIMIT 3
+        SELECT platform, COUNT(user_id) FROM subscriptions
+        GROUP BY platform
+        ORDER BY 2 DESC
+        LIMIT :count
         """, nativeQuery = true)
-    List<TopSubscription> getTopSubscriptions();
+    List<PlatformEnum> getTopSubscriptions(@Param("count") Integer count);
 }
 
