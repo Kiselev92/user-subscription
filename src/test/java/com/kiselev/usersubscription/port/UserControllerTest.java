@@ -2,7 +2,6 @@ package com.kiselev.usersubscription.port;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kiselev.usersubscription.AbstractMockMvcTest;
-import com.kiselev.usersubscription.adapter.repository.UserRepository;
 import com.kiselev.usersubscription.domain.User;
 import com.kiselev.usersubscription.service.UserService;
 import org.instancio.Instancio;
