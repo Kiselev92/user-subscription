@@ -1,14 +1,13 @@
 package com.kiselev.usersubscription.domain;
 
-import lombok.Builder;
-import lombok.Value;
 import lombok.With;
-
-import java.math.BigDecimal;
+import lombok.Value;
+import lombok.Builder;
 import java.time.Instant;
+import java.math.BigDecimal;
 
-@Value
 @With
+@Value
 @Builder
 public class Subscription {
 

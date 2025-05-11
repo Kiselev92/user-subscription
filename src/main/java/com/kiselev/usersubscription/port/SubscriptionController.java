@@ -1,11 +1,10 @@
 package com.kiselev.usersubscription.port;
 
-import com.kiselev.usersubscription.domain.Subscription;
-import com.kiselev.usersubscription.service.SubscriptionService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import com.kiselev.usersubscription.domain.Subscription;
+import com.kiselev.usersubscription.service.SubscriptionService;
 
 @RestController
 @RequiredArgsConstructor
@@ -30,9 +29,7 @@ public class SubscriptionController {
 
     @GetMapping("/subscriptions/top")
     public List<String> getTop(
-        @RequestParam(required = false, defaultValue = "3") int count
-    ) {
+        @RequestParam(required = false, defaultValue = "3") int count) {
         return subscriptionService.getTopSubscriptions(count);
     }
 }
-

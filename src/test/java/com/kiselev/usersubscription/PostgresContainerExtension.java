@@ -1,8 +1,8 @@
 package com.kiselev.usersubscription;
 
-import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.Extension;
 import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.testcontainers.containers.PostgreSQLContainer;
 
 public class PostgresContainerExtension implements Extension, BeforeAllCallback, ExtensionContext.Store.CloseableResource {

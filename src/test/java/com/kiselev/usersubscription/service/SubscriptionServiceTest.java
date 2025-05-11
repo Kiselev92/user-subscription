@@ -1,24 +1,24 @@
 package com.kiselev.usersubscription.service;
 
-import com.kiselev.usersubscription.AbstractIntegrationTest;
-import com.kiselev.usersubscription.adapter.entity.SubscriptionEntity;
-import com.kiselev.usersubscription.adapter.entity.UserEntity;
-import com.kiselev.usersubscription.adapter.repository.SubscriptionRepository;
-import com.kiselev.usersubscription.adapter.repository.UserRepository;
-import com.kiselev.usersubscription.common.exception.AlreadySubscribedException;
-import com.kiselev.usersubscription.common.exception.NotFoundException;
+import java.util.List;
+import java.time.Instant;
+import java.math.BigDecimal;
+import org.junit.jupiter.api.Test;
+import java.time.temporal.ChronoUnit;
+import org.junit.jupiter.api.BeforeEach;
 import com.kiselev.usersubscription.domain.PlatformEnum;
 import com.kiselev.usersubscription.domain.Subscription;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import java.math.BigDecimal;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
+import com.kiselev.usersubscription.AbstractIntegrationTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.kiselev.usersubscription.adapter.entity.UserEntity;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import com.kiselev.usersubscription.adapter.entity.SubscriptionEntity;
+import com.kiselev.usersubscription.adapter.repository.UserRepository;
+import com.kiselev.usersubscription.common.exception.NotFoundException;
+import com.kiselev.usersubscription.adapter.repository.SubscriptionRepository;
+import com.kiselev.usersubscription.common.exception.AlreadySubscribedException;
 
 @SpringBootTest
 class SubscriptionServiceTest extends AbstractIntegrationTest {

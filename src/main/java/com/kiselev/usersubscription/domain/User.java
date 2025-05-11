@@ -1,11 +1,11 @@
 package com.kiselev.usersubscription.domain;
 
-import lombok.Builder;
-import lombok.Value;
 import lombok.With;
+import lombok.Value;
+import lombok.Builder;
 
-@Value
 @With
+@Value
 @Builder
 public class User {
 

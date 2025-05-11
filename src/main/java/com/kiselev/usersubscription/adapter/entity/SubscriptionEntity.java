@@ -1,19 +1,17 @@
 package com.kiselev.usersubscription.adapter.entity;
 
-import com.kiselev.usersubscription.domain.PlatformEnum;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
 import java.time.Instant;
-import java.time.LocalDate;
+import java.math.BigDecimal;
+import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import com.kiselev.usersubscription.domain.PlatformEnum;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "subscriptions")
 public class SubscriptionEntity {
 

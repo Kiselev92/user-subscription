@@ -1,13 +1,12 @@
 package com.kiselev.usersubscription.adapter.repository;
 
-import com.kiselev.usersubscription.adapter.entity.SubscriptionEntity;
-import com.kiselev.usersubscription.domain.PlatformEnum;
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
-
-import java.util.List;
+import com.kiselev.usersubscription.domain.PlatformEnum;
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.kiselev.usersubscription.adapter.entity.SubscriptionEntity;
 
 @Repository
 public interface SubscriptionRepository extends JpaRepository<SubscriptionEntity, Long> {
@@ -20,4 +19,3 @@ public interface SubscriptionRepository extends JpaRepository<SubscriptionEntity
         """, nativeQuery = true)
     List<PlatformEnum> getTopSubscriptions(@Param("count") Integer count);
 }
-

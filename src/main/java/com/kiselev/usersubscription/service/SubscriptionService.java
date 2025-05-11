@@ -1,23 +1,19 @@
 package com.kiselev.usersubscription.service;
 
-import com.kiselev.usersubscription.adapter.entity.SubscriptionEntity;
+import java.util.List;
+import org.mapstruct.factory.Mappers;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import com.kiselev.usersubscription.domain.PlatformEnum;
+import com.kiselev.usersubscription.domain.Subscription;
 import com.kiselev.usersubscription.adapter.entity.UserEntity;
+import com.kiselev.usersubscription.adapter.entity.SubscriptionEntity;
 import com.kiselev.usersubscription.adapter.mapper.SubscriptionMapper;
 import com.kiselev.usersubscription.adapter.repository.SubscriptionRepository;
 import com.kiselev.usersubscription.adapter.repository.UserRepository;
 import com.kiselev.usersubscription.common.exception.AlreadySubscribedException;
 import com.kiselev.usersubscription.common.exception.NotFoundException;
-import com.kiselev.usersubscription.domain.PlatformEnum;
-import com.kiselev.usersubscription.domain.Subscription;
-import lombok.RequiredArgsConstructor;
-import org.mapstruct.factory.Mappers;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor

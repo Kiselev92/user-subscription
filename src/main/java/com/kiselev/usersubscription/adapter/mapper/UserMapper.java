@@ -1,8 +1,8 @@
 package com.kiselev.usersubscription.adapter.mapper;
 
-import com.kiselev.usersubscription.adapter.entity.UserEntity;
-import com.kiselev.usersubscription.domain.User;
 import org.mapstruct.Mapper;
+import com.kiselev.usersubscription.domain.User;
+import com.kiselev.usersubscription.adapter.entity.UserEntity;
 
 @Mapper
 public interface UserMapper {

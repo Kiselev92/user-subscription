@@ -1,15 +1,15 @@
 package com.kiselev.usersubscription.service;
 
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import com.kiselev.usersubscription.domain.User;
+import static org.assertj.core.api.Assertions.assertThat;
 import com.kiselev.usersubscription.AbstractIntegrationTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Autowired;
 import com.kiselev.usersubscription.adapter.entity.UserEntity;
 import com.kiselev.usersubscription.adapter.repository.UserRepository;
-import com.kiselev.usersubscription.domain.User;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import java.util.List;
-import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class UserServiceTest extends AbstractIntegrationTest {
